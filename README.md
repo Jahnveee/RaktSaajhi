@@ -42,3 +42,8 @@ This project was created as a personal endeavor to use technology for a meaningf
 
 ## 💡 Contributions
 I welcome ideas for improvements and feedback! If you'd like to contribute, feel free to fork the repository, make changes, and submit a pull request. Together, we can enhance the platform's impact.
+
+
+![Screenshot 2024-12-01 194941](https://github.com/user-attachments/assets/92a6f2c8-7c5b-4928-92c6-742230f0bbed)
+
+
