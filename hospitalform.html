@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Registration Form</title>
+    <link rel="stylesheet" href="./style4.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Hospital Registration</h2>
+        <form action="#" method="post">
+            <label for="hospital-name">Hospital Name:</label>
+            <input type="text" id="hospital-name" name="hospital_name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+
+            <label for="state">State:</label>
+            <select id="state" name="state" onchange="updateDistricts()" required>
+                <option value="" disabled selected>Select your state</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+            </select>
+
+            <label for="district">District:</label>
+            <select id="district" name="district" required>
+                <option value="" disabled selected>Select your district</option>
+            </select>
+
+            <label for="blood-types">Available Blood Types (Select Multiple):</label>
+            <div class="blood-types">
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="A+"> A+
+                </label>
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="A-"> A-
+                </label>
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="B+"> B+
+                </label>
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="B-"> B-
+                </label>
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="O+"> O+
+                </label>
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="O-"> O-
+                </label>
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="AB+"> AB+
+                </label>
+                <label>
+                    <input type="checkbox" name="blood_types[]" value="AB-"> AB-
+                </label>
+            </div>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script src="index4.js" charset="UTF-8"></script>
+</body>
+</html>
+

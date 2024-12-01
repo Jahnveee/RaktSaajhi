@@ -1,0 +1,22 @@
+[
+    {
+        "full_name": "John Doe",
+        "age": 30,
+        "email": "john.doe@example.com",
+        "phone": "1234567890",
+        "blood_group": "A+",
+        "address": "123 Elm Street",
+        "city": "Delhi",
+        "state": "Delhi"
+    },
+    {
+        "full_name": "Jane Smith",
+        "age": 28,
+        "email": "jane.smith@example.com",
+        "phone": "0987654321",
+        "blood_group": "O+",
+        "address": "456 Pine Avenue",
+        "city": "Mumbai",
+        "state": "Maharashtra"
+    }
+]

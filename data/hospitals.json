@@ -1,0 +1,29 @@
+[
+    {
+        "hospital_name": "City Hospital",
+        "email": "cityhospital@example.com",
+        "phone": "1112223333",
+        "state": "Delhi",
+        "district": "Central Delhi",
+        "blood_types": ["A+", "O+", "B+"],
+        "inventory": [
+            {"blood_type": "A+", "quantity": 10},
+            {"blood_type": "O+", "quantity": 5},
+            {"blood_type": "B+", "quantity": 3}
+        ]
+    },
+    {
+        "hospital_name": "Green Valley Hospital",
+        "email": "greenvalley@example.com",
+        "phone": "4445556666",
+        "state": "Maharashtra",
+        "district": "Mumbai",
+        "blood_types": ["A-", "O-", "AB+"],
+        "inventory": [
+            {"blood_type": "A-", "quantity": 8},
+            {"blood_type": "O-", "quantity": 4},
+            {"blood_type": "AB+", "quantity": 2}
+        ]
+    }
+]
+

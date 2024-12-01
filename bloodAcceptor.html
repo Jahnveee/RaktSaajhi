@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Acceptor Login and Search</title>
+    <link rel="stylesheet" href="./style1.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Blood Acceptor Login and Blood Search</h2>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="form-section">
+            <h3>Login</h3>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <hr>
+
+        <!-- Blood Search Form -->
+        <form id="bloodSearchForm" class="form-section">
+            <h3>Search for Blood</h3>
+
+            <label for="blood-group">Blood Group:</label>
+            <select id="blood-group" name="blood_group" required>
+                <option value="" disabled selected>Select blood group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+
+            <label for="urgency">Urgency:</label>
+            <select id="urgency" name="urgency" required>
+                <option value="" disabled selected>Select urgency level</option>
+                <option value="urgent">Urgent</option>
+                <option value="not_urgent">Not Urgent</option>
+            </select>
+
+            <label for="location">Location (City/Area):</label>
+            <input type="text" id="location" name="location" placeholder="Enter your location" required>
+
+            <input type="submit" value="Search Blood">
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for Login
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/api/users/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.token) {
+                        localStorage.setItem('token', data.token);
+                        alert('Login successful');
+                        window.location.href = '/dashboard.html';
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // JavaScript for Blood Search
+        document.getElementById('bloodSearchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const bloodGroup = document.getElementById('blood-group').value;
+            const urgency = document.getElementById('urgency').value;
+            const location = document.getElementById('location').value;
+
+            fetch('/api/users/add-history', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+                body: JSON.stringify({ searchType: 'Blood Search', query: { bloodGroup, urgency, location } }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Search Result:', data);
+                    alert('Search request processed');
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
